@@ -1,0 +1,52 @@
+{"properties": [
+  {
+    "name": "application.name",
+    "type": "java.lang.String",
+    "description": "A description for 'application.name'"
+  },
+  {
+    "name": "application.security.jwt.secret-key",
+    "type": "java.lang.String",
+    "description": "A description for 'application.security.jwt.secret-key'"
+  },
+  {
+    "name": "application.security.jwt.expiration",
+    "type": "java.lang.String",
+    "description": "A description for 'application.security.jwt.expiration'"
+  },
+  {
+    "name": "application.security.jwt.refresh-token.expiration",
+    "type": "java.lang.String",
+    "description": "A description for 'application.security.jwt.refresh-token.expiration'"
+  },
+  {
+    "name": "application.uploads.directory",
+    "type": "java.lang.String",
+    "description": "A description for 'application.uploads.directory'"
+  },
+  {
+    "name": "application.uploads.base-url",
+    "type": "java.lang.String",
+    "description": "A description for 'application.uploads.base-url'"
+  },
+  {
+    "name": "application.news.api-url",
+    "type": "java.lang.String",
+    "description": "A description for 'application.news.api-url'"
+  },
+  {
+    "name": "application.news.api-key",
+    "type": "java.lang.String",
+    "description": "A description for 'application.news.api-key'"
+  },
+  {
+    "name": "application.news.base-url",
+    "type": "java.lang.String",
+    "description": "A description for 'application.news.base-url'"
+  },
+  {
+    "name": "application.news.default-feed-id",
+    "type": "java.lang.String",
+    "description": "A description for 'application.news.default-feed-id'"
+  }
+]}
