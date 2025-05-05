@@ -5,6 +5,7 @@ import java.nio.file.Paths;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -18,9 +19,9 @@ public class WebConfig implements WebMvcConfigurer {
 	 * @Override public void addCorsMappings(CorsRegistry registry) {
 	 * registry.addMapping("/api/**") .allowedOrigins("https://byteandblog.com",
 	 * "https://www.byteandblog.com", "http://byteandblog.com",
-	 * "http://www.byteandblog.com") // In production, restrict to your domain
-	 * .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-	 * .allowedHeaders("Authorization", "Content-Type",
+	 * "http://www.byteandblog.com","http://localhost:3000") // In production,
+	 * restrict to your domain .allowedMethods("GET", "POST", "PUT", "DELETE",
+	 * "OPTIONS") .allowedHeaders("Authorization", "Content-Type",
 	 * "X-Requested-With").allowedHeaders("*") .allowCredentials(true).maxAge(3600);
 	 * }
 	 */

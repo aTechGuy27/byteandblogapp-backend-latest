@@ -1,6 +1,9 @@
 package com.byteandblog.api.service;
 
 import com.byteandblog.api.exception.BadRequestException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,12 +15,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.UUID;
-import java.util.logging.Logger;
 
 @Service
 public class FileStorageService {
     
-    private static final Logger logger = Logger.getLogger(FileStorageService.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(FileStorageService.class.getName());
     
     @Value("${application.uploads.directory:uploads}")
     private String uploadDir;
@@ -28,7 +30,7 @@ public class FileStorageService {
     public String storeFile(MultipartFile file, String subdirectory) {
         try {
             // Create the directory if it doesn't exist
-            Path uploadPath = Paths.get(uploadDir, subdirectory);
+            Path uploadPath = Paths.get(uploadDir, subdirectory).toAbsolutePath();
             if (!Files.exists(uploadPath)) {
                 Files.createDirectories(uploadPath);
                 logger.info("Created directory: " + uploadPath.toAbsolutePath());
@@ -50,7 +52,7 @@ public class FileStorageService {
             // Return the URL to access the file
             return baseUrl + "/uploads/" + subdirectory + "/" + filename;
         } catch (IOException ex) {
-            logger.severe("Could not store file: " + ex.getMessage());
+            logger.error("Could not store file: " + ex.getMessage());
             throw new BadRequestException("Could not store file. Please try again.");
         }
     }
